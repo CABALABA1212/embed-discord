@@ -6,10 +6,10 @@
     <title>Embed Link Generator</title>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const params = decodeURIComponent(window.location.hash.substring(1)).split('#');
-            const title = params[0] || "Default Title";
-            const text = params[1] || "Default Text";
-            const color = params[2] || "#000000";
+            const params = new URLSearchParams(window.location.hash.substring(1));
+            const title = params.get('title') || "Default Title";
+            const text = params.get('text') || "Default Text";
+            const color = params.get('color') || "#000000";
 
             document.querySelector('meta[property="og:title"]').setAttribute("content", title);
             document.querySelector('meta[property="og:description"]').setAttribute("content", text);
@@ -27,14 +27,11 @@
         });
 
         function getTextColor(bgColor) {
-            // Удаляем символ # если он есть
             const color = bgColor.charAt(0) === '#' ? bgColor.substring(1, 7) : bgColor;
             const r = parseInt(color.substring(0, 2), 16);
             const g = parseInt(color.substring(2, 4), 16);
             const b = parseInt(color.substring(4, 6), 16);
-            // Вычисляем яркость цвета
             const brightness = (r * 299 + g * 587 + b * 114) / 1000;
-            // Если яркость меньше 128, используем белый цвет текста, иначе черный
             return brightness < 128 ? '#FFFFFF' : '#000000';
         }
     </script>

@@ -25,7 +25,7 @@
             const text = encodeURIComponent(document.getElementById('text').value);
             const color = encodeURIComponent(document.getElementById('color').value);
 
-            const url = `https://CABALABA.github.io/embed-discord/#${title}#${text}#${color}`;
+            const url = `https://CABALABA.github.io/embed-discord/#title=${title}&text=${text}&color=${color}`;
             document.getElementById('generatedLink').innerText = url;
             document.getElementById('generatedLink').innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
         });
