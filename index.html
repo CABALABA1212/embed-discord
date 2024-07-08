@@ -6,7 +6,7 @@
     <title>Embed Link Generator</title>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const params = new URLSearchParams(window.location.hash.substring(1));
+            const params = new URLSearchParams(window.location.search);
             const title = params.get('title') || "Default Title";
             const text = params.get('text') || "Default Text";
             const color = params.get('color') || "#000000";
@@ -38,7 +38,7 @@
     <meta property="og:title" content="Default Title" />
     <meta property="og:description" content="Default Text" />
     <meta property="og:image" content="URL_TO_IMAGE" />
-    <meta property="og:url" content="https://CABALABA.github.io/embed-discord/" />
+    <meta property="og:url" content="https://CABALABA1212.github.io/embed-discord/" />
 </head>
 <body>
     <h1 id="title">Default Title</h1>
