@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Embed Link</title>
+</head>
+<body>
+    <h1>Generate Embed Link</h1>
+    <form id="generateForm">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title"><br><br>
+        <label for="text">Text:</label>
+        <input type="text" id="text" name="text"><br><br>
+        <label for="color">Background Color:</label>
+        <input type="color" id="color" name="color" value="#000000"><br><br>
+        <button type="submit">Generate Link</button>
+    </form>
+    <p id="generatedLink"></p>
+
+    <script>
+        document.getElementById('generateForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const title = encodeURIComponent(document.getElementById('title').value);
+            const text = encodeURIComponent(document.getElementById('text').value);
+            const color = encodeURIComponent(document.getElementById('color').value);
+
+            const url = `https://<ваше_имя_пользователя>.github.io/embed-link-generator/#${title}#${text}#${color}`;
+            document.getElementById('generatedLink').innerText = url;
+            document.getElementById('generatedLink').innerHTML = `<a href="${url}" target="_blank">${url}</a>`;
+        });
+    </script>
+</body>
+</html>
